@@ -135,7 +135,7 @@ function ajouterCandidat() {
 }
 
 function ajouterPlusieursCandidats() {
-    let nombre = prompt("Combien de candidat voulez-vous ajouter ?");
+    let nombre = prompt("Combien de candidat voulez-vous ajouter ? ");
     for (let i = 1; i <= nombre; i++) {
         console.log("Entrer les informations du candidat numéro " + i)
         ajouterCandidat()
@@ -143,41 +143,63 @@ function ajouterPlusieursCandidats() {
 }
 function afficherListeCandidats() {
     for (let i = 0; i < candidats.length; i++) {
-        console.log("Le cin : " + candidats[i].cin + "Le nom : " + candidats[i].nom + "Le prenom : " + candidats[i].prenom + "L'age : " + candidats[i].age +  "Parti politique : " + candidats[i].partiPolitique + "L'electeurs : " + candidats[i].electeurs.length)
+        console.log("Le cin : " + candidats[i].cin + " Le nom : " + candidats[i].nom + " Le prenom : " + candidats[i].prenom + " L'age : " + candidats[i].age +  " Parti politique : " + candidats[i].partiPolitique + " L'electeurs : " + candidats[i].electeurs.length)
+        console.log("")
     }
 }
 function supprimerCandidat() {
-    cin = prompt("Entrer CIN du candidat");
+    cin = prompt("Entrer CIN du candidat ");
     for (let i = 0; i < candidats.length; i++) {
         if (cin == candidats[i].cin) {
             candidats.splice(i, 1);
-        } else {
-            console.log("Cin n'existe pas");
+            return
         }
     }
+    console.log("Cin n'existe pas");
 }
 function rechercherDesCandidats() {
-    nom = prompt("Entrer nom du candidat");
+    nom = prompt("Entrer nom du candidat ");
     for (let i = 0; i < candidats.length; i++) {
         if (nom == candidats[i].nom) {
              console.log("Le cin : " + candidats[i].cin + "Le nom : " + candidats[i].nom + "Le prenom : " + candidats[i].prenom + "L'age : " + candidats[i].age +  "Parti politique : " + candidats[i].partiPolitique + "L'electeurs : " + candidats[i].electeurs.length)
-        } else {
-            console.log("Nom introuvable");
+             return
         }
- }
+ } console.log("Nom introuvable");
 }
 function modifierCandidat() {
-    let cin = prompt("Entrer Cin")
+    let cin = prompt("Entrer Cin ");
     for (let i = 0; i < candidats.length; i++) {
         if (cin == candidats[i].cin) {
-            let newAge = prompt("Entrer l'age");
+            let newAge = prompt("Entrer l'age ");
             candidats[i].age = newAge
-            let newPartiPolitique = prompt("Entrer parti politique");
+            let newPartiPolitique = prompt("Entrer parti politique ");
             candidats[i].partiPolitique = newPartiPolitique
         }
     }
 }
+ function Voter () {
+    let cin = prompt("Entrer Cin ");
+    for (let i = 0; i < candidats.length; i++) {
+        for (let j = 0; j < candidats[i].electeurs.length; j++) {
+            if (candidats[i].electeurs[j] == cin) {
+                console.log("Vous avez déjà voté et vous n'avez pas le droit de modifier votre vote ni de voter à nouveauu")
+                return
+            } 
+        }
+    }
+    let cinCandidat = prompt("Entrer CIN du candidat ");
+    for (let i = 0; i < candidats.length; i++) {
+        if (candidats[i].cin == cinCandidat) {
+            candidats[i].electeurs.push(cin)
+            return
+        }
+       
+    }
+    console.log("Il existe aucun candidat avec cette Cin ")
+ }
 function menu() {
+    console.log("")
+    console.log("")
     console.log("1. Ajouter un candidat");
     console.log("2. Ajouter plusieurs candidats");
     console.log("3. Afficher la liste des candidats");
@@ -185,9 +207,10 @@ function menu() {
     console.log("5. Modifier les informations d'un candidat");
     console.log("6. Supprimer un candidat ");
     console.log("7. Rechercher des candidats");
-    console.log("8. Statistiques de l'élection");
+    console.log("0. Quitter le programme");
+    let action = prompt("Quelle action voulez-vous faire ? ");
     console.log("")
-    let action = prompt("Quelle action voulez-vous faire ?");
+    console.log("")
     switch(action) {
         case "1" : 
            ajouterCandidat()
@@ -202,6 +225,7 @@ function menu() {
             menu()
             break;
         case "4" :
+            Voter ()
             menu()
             break;
         case "5" :
@@ -210,15 +234,12 @@ function menu() {
             break;
         case "6" :
             supprimerCandidat()
-            break;
             menu()
+            break;
         case "7" :
-            rechercherDesCandidats
-            break;
+            rechercherDesCandidats()
             menu()
-        case "8" :
             break;
-            menu()
         case "0" : 
             break;
     }
