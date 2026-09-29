@@ -146,6 +146,16 @@ function afficherListeCandidats() {
         console.log("Le cin : " + candidats[i].cin + "Le nom : " + candidats[i].nom + "Le prenom : " + candidats[i].prenom + "L'age : " + candidats[i].age +  "Parti politique : " + candidats[i].partiPolitique + "L'electeurs : " + candidats[i].electeurs.length)
     }
 }
+function supprimerCandidat() {
+    cin = prompt("Entrer CIN du candidat");
+    for (let i = 0; i < candidats.length; i++) {
+        if (cin == candidats[i].cin) {
+            candidats.splice(i, 1);
+        } else {
+            console.log("Cin n'existe pas");
+        }
+    }
+}
 
 function menu() {
     console.log("1. Ajouter un candidat");
