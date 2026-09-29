@@ -202,18 +202,18 @@ function menu() {
             menu()
             break;
         case "4" :
-            supprimerCandidat()
             menu()
             break;
         case "5" :
-        rechercherDesCandidats()
+            modifierCandidat()
         menu()
             break;
         case "6" :
-            modifierCandidat()
-            break
+            supprimerCandidat()
+            break;
             menu()
         case "7" :
+            rechercherDesCandidats
             break;
             menu()
         case "8" :
