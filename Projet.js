@@ -166,6 +166,17 @@ function rechercherDesCandidats() {
         }
  }
 }
+function modifierCandidat() {
+    let cin = prompt("Entrer Cin")
+    for (let i = 0; i < candidats.length; i++) {
+        if (cin == candidats[i].cin) {
+            let newAge = prompt("Entrer l'age");
+            candidats[i].age = newAge
+            let newPartiPolitique = prompt("Entrer parti politique");
+            candidats[i].partiPolitique = newPartiPolitique
+        }
+    }
+}
 function menu() {
     console.log("1. Ajouter un candidat");
     console.log("2. Ajouter plusieurs candidats");
@@ -181,33 +192,35 @@ function menu() {
         case "1" : 
            ajouterCandidat()
            menu()
-           break
+           break;
         case "2" :
             ajouterPlusieursCandidats()
             menu()
-            break
+            break;
         case "3" :
             afficherListeCandidats()
             menu()
-            break
-            menu()
+            break;
         case "4" :
-            break
+            supprimerCandidat()
             menu()
+            break;
         case "5" :
-            break
-            menu()
+        rechercherDesCandidats()
+        menu()
+            break;
         case "6" :
+            modifierCandidat()
             break
             menu()
         case "7" :
-            break
+            break;
             menu()
         case "8" :
-            break
+            break;
             menu()
         case "0" : 
-            break
+            break;
     }
 
 }
