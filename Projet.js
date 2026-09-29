@@ -141,8 +141,11 @@ function ajouterPlusieursCandidats() {
         ajouterCandidat()
     }
 }
-
-
+function afficherListeCandidats() {
+    for (let i = 0; i < candidats.length; i++) {
+        console.log("Le cin : " + candidats[i].cin + "Le nom : " + candidats[i].nom + "Le prenom : " + candidats[i].prenom + "L'age : " + candidats[i].age +  "Parti politique : " + candidats[i].partiPolitique + "L'electeurs : " + candidats[i].electeurs.length)
+    }
+}
 
 function menu() {
     console.log("1. Ajouter un candidat");
