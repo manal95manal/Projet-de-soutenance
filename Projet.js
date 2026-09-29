@@ -134,7 +134,13 @@ function ajouterCandidat() {
     return candidats
 }
 
-
+function ajouterPlusieursCandidats() {
+    let nombre = prompt("Combien de candidat voulez-vous ajouter ?");
+    for (let i = 1; i <= nombre; i++) {
+        console.log("Entrer les informations du candidat numéro " + i)
+        ajouterCandidat()
+    }
+}
 
 
 
