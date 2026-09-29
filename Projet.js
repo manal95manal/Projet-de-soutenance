@@ -156,7 +156,16 @@ function supprimerCandidat() {
         }
     }
 }
-
+function rechercherDesCandidats() {
+    nom = prompt("Entrer nom du candidat");
+    for (let i = 0; i < candidats.length; i++) {
+        if (nom == candidats[i].nom) {
+             console.log("Le cin : " + candidats[i].cin + "Le nom : " + candidats[i].nom + "Le prenom : " + candidats[i].prenom + "L'age : " + candidats[i].age +  "Parti politique : " + candidats[i].partiPolitique + "L'electeurs : " + candidats[i].electeurs.length)
+        } else {
+            console.log("Nom introuvable");
+        }
+ }
+}
 function menu() {
     console.log("1. Ajouter un candidat");
     console.log("2. Ajouter plusieurs candidats");
